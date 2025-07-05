@@ -245,7 +245,7 @@ CornersShaderEffect::windowAdded(EffectWindow *w)
 void 
 CornersShaderEffect::windowMaximizedStateChanged(EffectWindow *w, bool horizontal, bool vertical) 
 {
-    if (!m_windows[w].settings->disableCornersShaderForMaximized()) return;
+    if (!m_windows[w].settings || !m_windows[w].settings->disableCornersShaderForMaximized()) return;
 
     if ((horizontal == true) && (vertical == true)) {
         m_windows[w].skipEffect = true;
